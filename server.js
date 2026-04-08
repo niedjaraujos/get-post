@@ -9,7 +9,7 @@ let voluntarios = [];   // array vazio onde sera guardado os "voluntários", em 
 
 // rota para cadastrar voluntario
 app.post("/voluntarios", (req, res) => {
-  const { nome, email, telefone, mensagem, especialidade } = req.body;
+  const { nome, email, telefone, mensagem, especialidade } = req.body;  //destructuring
 
   //  Nome com no mínimo 3 caracteres
   if (!nome || nome.length < 3) {
