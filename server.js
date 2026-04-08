@@ -39,16 +39,16 @@ app.post("/voluntarios", (req, res) => {
   }
 
   const novoVoluntario = {
-    id: voluntarios.length + 1,
+    id: voluntarios.length + 1,   //numero em ordem crescente
     nome,
     email,
     telefone: telCampo,
     mensagem,
     especialidade,
   };
-  voluntarios.push(novoVoluntario);
+  voluntarios.push(novoVoluntario);  //adiciona cada voluntario dentro do array 
 
-  return res.status(201).json(novoVoluntario);
+  return res.status(201).json(novoVoluntario); //status de que foi criado com sucesso
 });
 
 //rota para listar os voluntarios
