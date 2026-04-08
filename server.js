@@ -1,11 +1,13 @@
-const express = require("express");
+const express = require("express");    //importando a biblioteca express  *require() node importa modulos
 
-const app = express();
-const PORT = 3000;
+const app = express();    //criando o servidor
+const PORT = 3000;         //numero da porta
 
-app.use(express.json());
-let voluntarios = [];
+app.use(express.json());  //solitações retornam em formato json
+let voluntarios = [];   // array vazio onde sera guardado os "voluntários", em projetos reais usar banco de dados
 
+
+// rota para cadastrar voluntario
 app.post("/voluntarios", (req, res) => {
   const { nome, email, telefone, mensagem, especialidade } = req.body;
 
@@ -49,10 +51,11 @@ app.post("/voluntarios", (req, res) => {
   return res.status(201).json(novoVoluntario);
 });
 
+//rota para listar os voluntarios
 app.get("/voluntarios", (req, res) => {
   res.status(200).json(voluntarios);
 });
-
+//servidor escuta a porta 3000 e função dentro é executada
 app.listen(PORT, () => {
   console.log(`Servidor rodandp na porta http://localhost:${PORT}`);
 });
