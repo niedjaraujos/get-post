@@ -2,8 +2,9 @@ const express = require("express");    //importando a biblioteca express  *requi
 
 const app = express();    //criando o servidor
 const PORT = 3000;         //numero da porta
+//const PORT = process.env.PORT || 3000;
 
-app.use(express.json());  //solitações retornam em formato json
+app.use(express.json());  //middleware  converte JSON da requisição em objeto JS (req.body)
 let voluntarios = [];   // array vazio onde sera guardado os "voluntários", em projetos reais usar banco de dados
 
 
@@ -55,7 +56,9 @@ app.post("/voluntarios", (req, res) => {
 app.get("/voluntarios", (req, res) => {
   res.status(200).json(voluntarios);
 });
+
 //servidor escuta a porta 3000 e função dentro é executada
+
 app.listen(PORT, () => {
   console.log(`Servidor rodandp na porta http://localhost:${PORT}`);
 });
